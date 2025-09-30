@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,212 +13,246 @@
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
-
-```
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
-  background-size: 300% 300%;
-  animation: gradientBG 10s ease infinite;
-  color: #fff;
-}
-
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-
-p.subtitle {
-  margin: 10px 0 20px;
-  font-size: 1.1rem;
-  color: #e0e0e0;
-}
-
-.form-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  animation: fadeInUp 1s ease;
-}
-
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(40px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.form-box label {
-  display: block;
-  margin: 15px 0 5px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffd369;
-}
-
-.form-box input,
-.form-box select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  margin-bottom: 10px;
-  font-size: 14px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-
-.form-box input::placeholder {
-  color: #ddd;
-}
-
-.form-box input:focus,
-.form-box select:focus {
-  background: rgba(255,255,255,0.25);
-  transform: scale(1.02);
-  color: #000; /* Hover/focus पर black text */
-}
-
-.form-box button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #ffd369, #f6a400);
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.4s;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-.form-box button:hover {
-  background: linear-gradient(135deg, #f6a400, #ffd369);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-  color: #000; /* Hover पर black text */
-}
-
-.about {
-  margin: 25px;
-  max-width: 500px;
-  text-align: center;
-  color: #f1f1f1;
-  font-size: 14px;
-}
-
-.about a {
-  color: #ffd369;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.about a:hover {
-  color: #000; /* Hover पर black text */
-  text-decoration: underline;
-}
-```
-
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #1e3c72, #2a5298, #6a11cb, #2575fc, #ff6a00, #ee0979);
+      background-size: 1200% 1200%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      margin: 10px 0 25px;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+    .form-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      animation: fadeInUp 1s ease;
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .form-box label {
+      display: block;
+      text-align: left;
+      margin: 15px 0 5px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffd369;
+    }
+    .form-box input,
+    .form-box select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+      transition: all .3s ease;
+    }
+    .form-box input::placeholder { color: #ddd; }
+    .form-box input:focus,
+    .form-box select:focus {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.02);
+      color: #fff;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      text-decoration: none;
+      text-align: center;
+      display: block;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, #ffd369, #f6a400);
+      color: #222;
+      order: 2;
+    }
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #f6a400, #ffd369);
+      color: #000;
+    }
+    .btn-key {
+      background: rgba(0, 0, 0, 0.2);
+      color: #ffd369;
+      order: 1;
+    }
+    .btn-key:hover {
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+    .about {
+      margin: 25px 0 0;
+      max-width: 500px;
+      text-align: center;
+      color: #f1f1f1;
+      font-size: 14px;
+    }
+    .about a {
+      color: #ffd369;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .about a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <h1>🚀 Traffic Sender Pro</h1>
-  <p class="subtitle">Simple, Reliable & Stylish way to send traffic to your ad network links.</p>
+  <div class="container">
+    <h1>🚀 Traffic Sender Pro</h1>
+    <p class="subtitle">A demonstration of front-end form handling.</p>
 
-  <div class="form-box">
-    <form id="trafficForm">
-      <label>🔑 Secret Key</label>
-      <input type="password" id="secretKey" placeholder="Enter your secret key" required>
+    <div class="form-box">
+      <form id="trafficForm">
+        <label for="secretKey">🔑 Secret Key</label>
+        <input type="password" id="secretKey" placeholder="Get key from 'Access Key' page" required>
 
-```
-  <label>🌐 Ad Network</label>
-  <select id="adNetwork" required>
-    <option value="">Select a network</option>
-    <option value="adsterra">Adsterra</option>
-    <option value="propellerads">PropellerAds</option>
-    <option value="mgid">MGID</option>
-    <option value="other">Other</option>
-  </select>
+        <label for="adNetwork">🌐 Ad Network</label>
+        <select id="adNetwork" required>
+          <option value="">Select a network</option>
+          <option value="adsterra">Adsterra</option>
+          <option value="propellerads">PropellerAds</option>
+          <option value="mgid">MGID</option>
+          <option value="other">Other</option>
+        </select>
 
-  <label>🔗 Your Ad Network URL</label>
-  <input type="url" id="adUrl" placeholder="https://adnetwork.com/your-id" required>
+        <label for="adUrl">🔗 Your Ad Network URL</label>
+        <input type="url" id="adUrl" placeholder="https://adnetwork.com/your-id" required>
 
-  <label>📊 Impressions Amount</label>
-  <select id="impressions" required>
-    <option value="">Select amount of impressions</option>
-    <option value="1000">100</option>
-    <option value="5000">500</option>
-    <option value="10000">1,000</option>
-    <option value="50000">2,000</option>
-  </select>
+        <label for="impressions">📊 Impressions Amount</label>
+        <select id="impressions" required>
+          <option value="">Select amount of impressions</option>
+          <option value="100">100</option>
+          <option value="500">500</option>
+          <option value="1000">1,000</option>
+          <option value="2000">2,000</option>
+        </select>
 
-  <label>🌍 High CPM Country</label>
-  <select id="country" required>
-    <option value="in">India</option>
-  </select>
+        <!-- --- MODIFIED COUNTRY DROPDOWN --- -->
+        <label for="country">🌍 High CPM Country</label>
+        <select id="country" required>
+          <option value="in">India</option>
+        </select>
+        <!-- --- END OF MODIFICATION --- -->
 
-  <button type="submit">⚡ Send Traffic</button>
-</form>
-```
+        <div class="button-container">
+          <button type="submit" class="btn btn-submit">⚡ Simulate Action</button>
+          <a href="./accesskey.html" target="_blank" class="btn btn-key">🔑 Get Access Key</a>
+        </div>
+      </form>
+    </div>
 
-  </div>
-
-  <div class="about">
-    <p>
-      This tool is designed to help you send traffic to your ad network links efficiently.  
-      Please use it responsibly ⚠️ and in accordance with the terms of service of your ad network.  
-    </p>
-    <p>✨ Created by <a href="#">EarnFromAdsterra</a></p>
+    <div class="about">
+      <p>This tool is for educational purposes. Please use web development skills responsibly ⚠️ and ethically.</p>
+      <p>✨ Created by <a href="#" target="_blank">A Responsible Developer</a></p>
+    </div>
   </div>
 
   <script>
     document.getElementById("trafficForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+      e.preventDefault(); 
+      const button = e.target.querySelector(".btn-submit");
 
-      const secretKey = document.getElementById("secretKey").value;
+      // LOGIC 1: CHECK DAILY LIMIT
+      const currentDate = new Date().toDateString();
+      const lastSubmissionDate = localStorage.getItem('lastSubmissionDate');
+
+      if (lastSubmissionDate === currentDate) {
+        alert("Sorry sir, you have reached your daily limit. Please try again tomorrow.");
+        return;
+      }
+
+      // Get values from the form
+      const secretKeyInput = document.getElementById("secretKey").value;
       const adNetwork = document.getElementById("adNetwork").value;
       const adUrl = document.getElementById("adUrl").value;
       const impressions = document.getElementById("impressions").value;
       const country = document.getElementById("country").value;
 
-      if(!secretKey || !adNetwork || !adUrl || !impressions || !country) {
+      // LOGIC 2: VALIDATE THE SECRET KEY
+      const correctKey = localStorage.getItem('secretAccessKey');
+
+      if (!correctKey || secretKeyInput !== correctKey) {
+        alert("❌ Invalid Secret Key! Please get a new, valid key from the 'Get Access Key' page.");
+        return;
+      }
+      
+      // Standard validation for other fields
+      if (!adNetwork || !adUrl || !impressions || !country) {
         alert("⚠️ Please fill all fields!");
         return;
       }
 
-      alert("✅ Premium Traffic Request Sent!\n\n" +
-            "Secret Key: " + secretKey + "\n" +
-            "Ad Network: " + adNetwork + "\n" +
-            "Ad URL: " + adUrl + "\n" +
-            "Impressions: " + impressions + "\n" +
-            "Country: " + country);
+      // --- ALL CHECKS PASSED, PROCEED WITH SUBMISSION ---
+      button.disabled = true;
+      button.textContent = "Processing...";
 
-      console.log({
-        secretKey,
-        adNetwork,
-        adUrl,
-        impressions,
-        country
-      });
+      setTimeout(() => {
+        alert("✅ Your order is confirmed! Traffic will be sent within 24 hours.");
+
+        localStorage.setItem('lastSubmissionDate', currentDate);
+        localStorage.removeItem('secretAccessKey');
+
+        document.getElementById("trafficForm").reset();
+        button.disabled = false;
+        button.textContent = "⚡ Simulate Action";
+      }, 1500); 
     });
   </script>
 
