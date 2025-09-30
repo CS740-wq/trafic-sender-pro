@@ -1,138 +1,226 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Premium Ad Traffic Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Sender Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-      padding: 40px;
-      width: 420px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      animation: fadeIn 1s ease;
-    }
+```
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
+  background-size: 300% 300%;
+  animation: gradientBG 10s ease infinite;
+  color: #fff;
+}
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #ff512f, #dd2476);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textGlow 2s infinite alternate;
-    }
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-      font-size: 16px;
-    }
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
 
-    input, select {
-      width: 90%;
-      padding: 12px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 12px;
-      outline: none;
-      font-size: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+p.subtitle {
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
 
-    input:focus, select:focus {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #ff512f;
-    }
+.form-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  animation: fadeInUp 1s ease;
+}
 
-    button {
-      margin-top: 25px;
-      padding: 15px 25px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #ff512f, #dd2476);
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
-    button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #ff512f;
-    }
+.form-box label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffd369;
+}
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+.form-box input,
+.form-box select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
 
-    @keyframes textGlow {
-      from {text-shadow: 0 0 10px #ff512f;}
-      to {text-shadow: 0 0 25px #dd2476, 0 0 5px #ff512f;}
-    }
+.form-box input::placeholder {
+  color: #ddd;
+}
 
-    @keyframes pulse {
-      0% {box-shadow: 0 0 0px rgba(255,81,47,0.7);}
-      50% {box-shadow: 0 0 20px rgba(221,36,118,0.9);}
-      100% {box-shadow: 0 0 0px rgba(255,81,47,0.7);}
-    }
+.form-box input:focus,
+.form-box select:focus {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.02);
+  color: #000; /* Hover/focus पर black text */
+}
+
+.form-box button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ffd369, #f6a400);
+  color: #222;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.form-box button:hover {
+  background: linear-gradient(135deg, #f6a400, #ffd369);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  color: #000; /* Hover पर black text */
+}
+
+.about {
+  margin: 25px;
+  max-width: 500px;
+  text-align: center;
+  color: #f1f1f1;
+  font-size: 14px;
+}
+
+.about a {
+  color: #ffd369;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.about a:hover {
+  color: #000; /* Hover पर black text */
+  text-decoration: underline;
+}
+```
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚀 Premium Traffic Tool</h1>
-    
-    <label>🔗 Your Ad Network URL</label>
-    <input type="text" id="adUrl" placeholder="Enter your ad link...">
 
-    <label>📊 Impressions Amount</label>
-    <select id="impressions">
-      <option value="50">50</option>
-      <option value="100">100</option>
-      <option value="200">200</option>
-      <option value="500">500</option>
-      <option value="1000">1000</option>
-    </select>
+  <h1>🚀 Traffic Sender Pro</h1>
+  <p class="subtitle">Simple, Reliable & Stylish way to send traffic to your ad network links.</p>
 
-    <button onclick="sendTraffic()">🚀 Send Traffic</button>
+  <div class="form-box">
+    <form id="trafficForm">
+      <label>🔑 Secret Key</label>
+      <input type="password" id="secretKey" placeholder="Enter your secret key" required>
+
+```
+  <label>🌐 Ad Network</label>
+  <select id="adNetwork" required>
+    <option value="">Select a network</option>
+    <option value="adsterra">Adsterra</option>
+    <option value="propellerads">PropellerAds</option>
+    <option value="mgid">MGID</option>
+    <option value="other">Other</option>
+  </select>
+
+  <label>🔗 Your Ad Network URL</label>
+  <input type="url" id="adUrl" placeholder="https://adnetwork.com/your-id" required>
+
+  <label>📊 Impressions Amount</label>
+  <select id="impressions" required>
+    <option value="">Select amount of impressions</option>
+    <option value="1000">100</option>
+    <option value="5000">500</option>
+    <option value="10000">1,000</option>
+    <option value="50000">2,000</option>
+  </select>
+
+  <label>🌍 High CPM Country</label>
+  <select id="country" required>
+    <option value="in">India</option>
+  </select>
+
+  <button type="submit">⚡ Send Traffic</button>
+</form>
+```
+
+  </div>
+
+  <div class="about">
+    <p>
+      This tool is designed to help you send traffic to your ad network links efficiently.  
+      Please use it responsibly ⚠️ and in accordance with the terms of service of your ad network.  
+    </p>
+    <p>✨ Created by <a href="#">EarnFromAdsterra</a></p>
   </div>
 
   <script>
-    function sendTraffic() {
-      let url = document.getElementById("adUrl").value;
-      if (!url) {
-        alert("Please enter a valid URL!");
+    document.getElementById("trafficForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const secretKey = document.getElementById("secretKey").value;
+      const adNetwork = document.getElementById("adNetwork").value;
+      const adUrl = document.getElementById("adUrl").value;
+      const impressions = document.getElementById("impressions").value;
+      const country = document.getElementById("country").value;
+
+      if(!secretKey || !adNetwork || !adUrl || !impressions || !country) {
+        alert("⚠️ Please fill all fields!");
         return;
       }
-      if (!url.startsWith("http://") && !url.startsWith("https://")) {
-        url = "https://" + url;
-      }
 
-      let win = window.open(url, "_blank");
+      alert("✅ Premium Traffic Request Sent!\n\n" +
+            "Secret Key: " + secretKey + "\n" +
+            "Ad Network: " + adNetwork + "\n" +
+            "Ad URL: " + adUrl + "\n" +
+            "Impressions: " + impressions + "\n" +
+            "Country: " + country);
 
-      // Tab will close only after 10 seconds
-      setTimeout(() => {
-        if (win && !win.closed) {
-          win.close();
-        }
-      }, 10000);
-    }
+      console.log({
+        secretKey,
+        adNetwork,
+        adUrl,
+        impressions,
+        country
+      });
+    });
   </script>
+
 </body>
 </html>
