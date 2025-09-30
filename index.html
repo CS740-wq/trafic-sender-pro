@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,6 +149,35 @@
       color: #fff;
       text-decoration: underline;
     }
+
+    /* Popup Notification */
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      min-width: 250px;
+      padding: 15px 20px;
+      background: #222;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 9999;
+      animation: slideIn 0.5s ease, fadeOut 0.5s ease 3s forwards;
+    }
+    .popup.success { border-left: 6px solid #4caf50; }
+    .popup.error { border-left: 6px solid #f44336; }
+    .popup.warning { border-left: 6px solid #ff9800; }
+
+    @keyframes slideIn {
+      from { transform: translateX(120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeOut {
+      to { transform: translateX(120%); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -184,12 +212,10 @@
           <option value="2000">2,000</option>
         </select>
 
-        <!-- --- MODIFIED COUNTRY DROPDOWN --- -->
         <label for="country">🌍 High CPM Country</label>
         <select id="country" required>
           <option value="in">India</option>
         </select>
-        <!-- --- END OF MODIFICATION --- -->
 
         <div class="button-container">
           <button type="submit" class="btn btn-submit">⚡ Simulate Action</button>
@@ -204,48 +230,56 @@
     </div>
   </div>
 
+  <!-- Popup -->
+  <div id="popup" class="popup"></div>
+
   <script>
+    function showPopup(message, type="success") {
+      const popup = document.getElementById("popup");
+      popup.textContent = message;
+      popup.className = "popup " + type;
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 3500);
+    }
+
     document.getElementById("trafficForm").addEventListener("submit", function(e) {
       e.preventDefault(); 
       const button = e.target.querySelector(".btn-submit");
 
-      // LOGIC 1: CHECK DAILY LIMIT
       const currentDate = new Date().toDateString();
       const lastSubmissionDate = localStorage.getItem('lastSubmissionDate');
 
       if (lastSubmissionDate === currentDate) {
-        alert("Sorry sir, you have reached your daily limit. Please try again tomorrow.");
+        showPopup("⚠️ Daily limit reached. Try again tomorrow.", "warning");
         return;
       }
 
-      // Get values from the form
       const secretKeyInput = document.getElementById("secretKey").value;
       const adNetwork = document.getElementById("adNetwork").value;
       const adUrl = document.getElementById("adUrl").value;
       const impressions = document.getElementById("impressions").value;
       const country = document.getElementById("country").value;
 
-      // LOGIC 2: VALIDATE THE SECRET KEY
       const correctKey = localStorage.getItem('secretAccessKey');
 
       if (!correctKey || secretKeyInput !== correctKey) {
-        alert("❌ Invalid Secret Key! Please get a new, valid key from the 'Get Access Key' page.");
-        return;
-      }
-      
-      // Standard validation for other fields
-      if (!adNetwork || !adUrl || !impressions || !country) {
-        alert("⚠️ Please fill all fields!");
+        showPopup("❌ Invalid Secret Key! Please get a new key.", "error");
         return;
       }
 
-      // --- ALL CHECKS PASSED, PROCEED WITH SUBMISSION ---
+      if (!adNetwork || !adUrl || !impressions || !country) {
+        showPopup("⚠️ Please fill all fields!", "warning");
+        return;
+      }
+
       button.disabled = true;
       button.textContent = "Processing...";
 
       setTimeout(() => {
-        alert("✅ Your order is confirmed! Traffic will be sent within 24 hours.");
-
+        showPopup("✅ Your order is confirmed! Traffic will start within 24h.", "success");
         localStorage.setItem('lastSubmissionDate', currentDate);
         localStorage.removeItem('secretAccessKey');
 
