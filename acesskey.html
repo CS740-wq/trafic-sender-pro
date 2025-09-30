@@ -1,0 +1,134 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Access Key</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #12213c, #0a1128);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            color: #ffd369;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+        .square {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border: 3px solid #ffd369;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        #keyCode {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none; /* For the 'Go Back' link */
+            margin: 0 5px;
+        }
+        .btn-copy {
+            background: #ffd369;
+            color: #222;
+        }
+        .btn-copy:hover {
+            background: #f6a400;
+        }
+        .btn-back {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+        .btn-back:hover {
+            background: rgba(255,255,255,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Daily Access Key</h1>
+        <p>Copy this key and paste it on the main page to proceed.</p>
+        <div class="square">
+            <span id="keyCode"></span>
+        </div>
+        <button id="copyButton" class="btn btn-copy">📋 Copy Key</button>
+        <!-- This link assumes your main file is named index.html in the same folder -->
+        <a href="./index.html" class="btn btn-back">⬅️ Go Back</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Generate a 6-digit random number (from 100000 to 999999)
+            const generatedKey = Math.floor(100000 + Math.random() * 900000);
+
+            // 2. Display the generated key in the animated square
+            const keyCodeElement = document.getElementById('keyCode');
+            keyCodeElement.textContent = generatedKey;
+
+            // 3. IMPORTANT: Save the key to the browser's storage.
+            // This allows the main page (index.html) to retrieve and check it.
+            localStorage.setItem('secretAccessKey', generatedKey);
+
+            // 4. Add functionality to the "Copy Key" button
+            const copyButton = document.getElementById('copyButton');
+            copyButton.addEventListener('click', function() {
+                navigator.clipboard.writeText(generatedKey).then(() => {
+                    // Give the user feedback that the key was copied successfully
+                    copyButton.textContent = '✅ Copied!';
+                    // Change the text back after 2 seconds
+                    setTimeout(() => {
+                        copyButton.textContent = '📋 Copy Key';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy the key.');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
